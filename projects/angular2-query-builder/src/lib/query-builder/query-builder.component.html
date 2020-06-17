@@ -18,14 +18,14 @@
   <ng-template #defaultButtonGroup>
     <div [ngClass]="getClassNames('buttonGroup', 'rightAlign')">
       <button type="button" (click)="addRule()" [ngClass]="getClassNames('button')" [disabled]=disabled>
-        <i [ngClass]="getClassNames('addIcon')"></i> Rule
+        <i [ngClass]="getClassNames('addIcon')"></i> Rregull
       </button>
       <button type="button" (click)="addRuleSet()" [ngClass]="getClassNames('button')" *ngIf="allowRuleset" [disabled]=disabled>
         <i [ngClass]="getClassNames('addIcon')"></i> Ruleset
       </button>
       <ng-container *ngIf="!!parentValue && allowRuleset">
         <button type="button" (click)="removeRuleSet()" [ngClass]="getClassNames('button', 'removeButton')" [disabled]=disabled>
-          <i [ngClass]="getClassNames('removeIcon')"></i>
+             <i [ngClass]="getClassNames('removeIcon')"></i>
         </button>
       </ng-container>
     </div>
@@ -40,12 +40,7 @@
       <div [ngClass]="getClassNames('switchControl')">
         <input type="radio" [ngClass]="getClassNames('switchRadio')" [(ngModel)]="data.condition" [disabled]=disabled
           value="and" #andOption />
-        <label (click)="changeCondition(andOption.value)" [ngClass]="getClassNames('switchLabel')">AND</label>
-      </div>
-      <div [ngClass]="getClassNames('switchControl')">
-        <input type="radio" [ngClass]="getClassNames('switchRadio')" [(ngModel)]="data.condition" [disabled]=disabled
-          value="or" #orOption />
-        <label (click)="changeCondition(orOption.value)" [ngClass]="getClassNames('switchLabel')">OR</label>
+        <label (click)="changeCondition(andOption.value)" [ngClass]="getClassNames('switchLabel')">DHE</label>
       </div>
     </div>
   </ng-template>
@@ -53,7 +48,7 @@
 
 <div #treeContainer (transitionend)="transitionEnd($event)" [ngClass]="getClassNames('treeContainer', data.collapsed ? 'collapsed' : null)">
   <ul [ngClass]="getClassNames('tree')" *ngIf="data && data.rules">
-    <ng-container *ngFor="let rule of data.rules;let i=index">
+    <ng-container *ngFor="let rule of data.rules; let i=index">
 
       <ng-container *ngIf="{ruleset: !!rule.rules, invalid: !config.allowEmptyRulesets && rule.rules && rule.rules.length === 0} as local">
         <li [ngClass]="getQueryItemClassName(local)">
